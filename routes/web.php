@@ -18,15 +18,3 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], function(){
-    Route::get('/', function(){
-    });
-    Route::resource('user', 'UserController');
-    Route::resource('/detail', 'DetailController@index');
-
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
