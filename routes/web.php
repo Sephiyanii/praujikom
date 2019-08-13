@@ -26,3 +26,7 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], fu
     Route::resource('/detail', 'DetailController@index');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
