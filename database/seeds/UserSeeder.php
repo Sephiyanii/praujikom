@@ -13,18 +13,20 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //membuat role admin 
-        $adminRole = new Role();
-        $adminRole->name = "admin";
-        $adminRole->display_name = "Admin";
-        $adminRole->save();
+        // //membuat role admin 
+        // $adminRole = new Role();
+        // $adminRole->name = "admin";
+        // $adminRole->display_name = "Admin";
+        // $adminRole->save();
 
         //Membuat sample admin
+        $role = Role::where('name', 'admin')->first();
+
         $admin = new User();
         $admin->name = 'Admin';
-        $admin->email = 'admin@gmail.com';
+        $admin->email = 'admin@email.com';
         $admin->password = bcrypt('rahasia');
         $admin->save();
-        $admin->attachRole($adminRole);
+        $admin->attachRole($role);
     }
 }

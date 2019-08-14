@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pendaftaran;
 
 class PendaftaranController extends Controller
 {

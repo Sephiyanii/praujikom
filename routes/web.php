@@ -21,8 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], function(){
     Route::get('/', function(){
-        Route::get('detail', 'DetailController@index');
-        Route::get('pendaftaran', 'PendaftaranController@index');
+        
     });
     Route::resource('user', 'UserController');
+    Route::resource('pendaftaran', 'PendaftaranController');
+    Route::get('home',function(){
+        return view('backend.home');
+    });
 });
