@@ -25,6 +25,8 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], fu
     });
     Route::resource('user', 'UserController');
     Route::resource('pendaftaran', 'PendaftaranController');
+    Route::resource('dokter', 'DokterController');
+    
     Route::get('home',function(){
         return view('backend.home');
     });

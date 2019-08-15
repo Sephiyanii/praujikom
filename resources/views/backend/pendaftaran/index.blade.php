@@ -9,7 +9,7 @@
        <table class ="table">
             <thead>
                 <tr>
-                                        <th scope="col">Nomor Resep</th>
+                                        <th scope="col">Nomor Pendaftaran</th>
                                         <th scope="col">Tanggal pendaftaran</th>
                                         <th scope="col">Kode Dokter</th>
                                         <th scope="col">Kode pasien</th>
@@ -23,20 +23,19 @@
                                     @php $no = 1; @endphp
                                     @foreach($pendaftaran as $data)
                                     <tr>
-                                        <td>{{ $no++ }}</td>
-                                        <td>{{ $data->Nomor_rsep }}</td>
-                                        <td>{{ $data->Tanggal_pndftran }}</td>
+                                        <td>{{ $data->Nomor_pendftrn }}</td>
+                                        <td>{{ $data->Tanggal_pendftrn }}</td>
                                         <td>{{ $data->Kode_dktr }}</td>
                                         <td>{{ $data->Kode_psien }}</td>
                                         <td>{{ $data->Kode_plklinik }}</td>
                                         <td>{{ $data->Biaya }}</td>
                                         <td>{{ $data->Keterangan }}</td>
                                         <td>
-                                            <a href="{{ route('tag.edit',$data->id) }}"
+                                            <a href="{{ route('pendaftaran.edit',$data->id) }}"
                                            class="btn btn-outline-info">Edit Data</a>
                                         </td>
                                         <td>
-                                            <form action="{{ route('tag.destroy',$data->id) }}" method="post">
+                                            <form action="{{ route('pendaftaran.destroy',$data->id) }}" method="post">
                                             {{csrf_field()}}
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button class="btn btn-outline-info" type="submit">
